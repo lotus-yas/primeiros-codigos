@@ -1,0 +1,77 @@
+* {
+    padding:3px; 
+    margin:2px;
+    color:burlywood;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: none;
+    align-items: center;
+}
+
+h3 {
+    padding: 10px;
+    color:peru;
+    text-align: justify;
+}
+
+#form_cad {
+    width: 65%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color:rgba(0, 0, 0, 0.482);
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+fieldset {
+    border: none;
+}
+
+.form input {
+    border-radius: 2px 2px 2px 2px;
+    justify-content:flex-start;
+    border: none;
+    width: 70%;
+}
+
+#form_button {
+    padding: 4px;
+    width: 15%;
+    border: none;
+    border-radius: 2px 2px 2px 2px;
+    cursor: pointer;
+    color: burlywood;
+}
+
+#form_button:hover {
+    color: aliceblue;
+    background-position:left bottom;
+    background-color: peru;
+    transition: 600ms;
+}
+
+#pegadinha {
+    padding: 4px;
+    width: 15%;
+    border: none;
+    border-radius: 2px 2px 2px 2px;
+    cursor: pointer;
+    color: burlywood;
+}
+
+
+#pegadinha:hover {
+    color: aliceblue;
+    background-position:left bottom;
+    background-color: peru;
+    transition: 600ms;
+}
+
+@media only screen and (max-width: 480px) {
+    #form_button{
+        width: 25%;
+    }
+
+    #pegadinha {
+        width: 25%;
+    }
+}

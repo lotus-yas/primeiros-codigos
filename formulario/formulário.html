@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Exemplo de Formulário</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href="style.css">
+    <title> Formulário JS Mentoria 11/05 HC03 </title>
+
+    <!-- Criando um processo em JS -->
+    <script>
+        // var primeiroNome = prompt ("Olá, qual é o seu nome?");
+        // alert ("Seja bem vinde, " + primeiroNome + "!");
+
+        function validacao(){
+            var nome = form_cad.nome_usuario.value;
+            var email = form_cad.email_usuario.value;
+            var senha = form_cad.senha_usuario.value;
+            var confirmacaoSenha = form_cad.confirmacao.value;
+            // var retorno = document.getElementById("retorno").innerHTML = nome;
+
+            // form_cad é o id do nosso formulário e nome_usuario, email_usuario, senha_usuario e confirmacao são variáveis dentro do formulário. 
+            // nesse caso os associamos para obter seu valor, que é a informação inserida dentro do seu campo correspondente no formulário.
+            
+            if (nome == ""){
+                alert("Oi! Faltou preencher aqui seu nome! :) ");
+                form_cad.nome_usuario.focus();
+                return false;
+                // quando o usuário não preencher o campo de nome, o cursor retornará aqui depois da menssagem de alerta, redirecionando o foco do usuário.
+                // o return false é para que siga esse looping enquanto o campo não for preenchido. ele está associado ao return da validacao no body, no botão de enviar.
+            }
+
+            if (email == "" || email.indexOf ("@")==-1){
+                alert("Ei, "+ nome + ", preencha também o seu e-mail com uma conta válida.");
+                form_cad.email_usuario.focus();
+                return false;
+                // aqui se repete o processo de looping no caso de que o usuário deixe este campo vazio.
+                // porém aqui cuidamos de garantir que haja a presença do @ no email enviado
+            }
+
+            if (senha == ""){
+                alert("Ei, "+ nome + ", faça uma senha.");
+                form_cad.senha_usuario.focus();
+                return false;
+                // aqui também se repete o processo de looping no caso de que o usuário deixe este campo vazio.
+            }
+
+            if (confirmacaoSenha =="" || confirmacaoSenha != senha){
+                alert("Ei, "+ nome + ", confirme sua senha. Ela precisa estar igual à anterior.");
+                form_cad.confirmacao.focus();
+                return false;
+                // aqui também se repete o processo de looping no caso de que o usuário deixe este campo vazio.
+            }
+
+            document.writeln ("Prezade " + nome + ", te agradecemos haver preenchido nosso formulário. Te enviaremos a " + email + " sua confirmação de participação.")
+
+        }
+
+
+        function mensagem(){
+            alert ("Você é beeeem curiose mesmo, né?");
+        }
+        // essa função é para ativar o botão de olhe aqui, embaixo do formulário. a mensagem desta função foi vinculada ao botão pelo onclick no body.
+
+    </script>
+
+</head>
+<body>
+    <h3>Meu primeiro formulário :P</h3>
+    <form id="form_cad" method="post">
+    <!-- form_cad é formulário de cadastro  -->
+    <!-- method post é para que a informação enviada pelo formulário não fique à mostra e seja diretamente enviado ao código fonte, 
+        se quiséssemos que aparecesse na url usaríamos method get e assim poderíamos verificar na mesma url se as informações coletadas estão corretas -->
+    
+          <fieldset>
+              <!-- para um campo de formulário -->
+
+              <legend>Por favor, preencha os campos abaixo </legend>
+               <!-- para definir o que será pedido no formulário -->
+                  <br>
+                <div class="form">
+                  <label>Nome </label>
+                  <input type="text" name="nome_usuario"><br><br>
+                  <label>E-mail</label>
+                  <input type="email" name="email_usuario"><br><br>
+                  <label>Senha </label>
+                  <input type="password" name="senha_usuario"><br><br>
+                  <label>Senha </label>
+                  <input type="password" name="confirmacao"><br><br>
+                </div>
+
+                  <!-- para criar o botão de enviar: -->
+                  <input id="form_button" type="submit" onclick=" return validacao()" value="Enviar"><br><br>
+                  <!-- aqui escolhemos submit para que esses valores sejam futuramente armazenados num banco de dados -->
+
+          </fieldset>
+    </form>
+
+    <div >
+        <br>
+        <br>
+        <input id="pegadinha" type="button" onclick="mensagem()" value="Olhe aqui">
+    </div>
+
+    <!-- <p id="retorno"></p> essa era um retorno que o professor ia explicar mas ficou para a próxima aula.-->
+</body>
+</html>
+
